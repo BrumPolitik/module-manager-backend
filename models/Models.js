@@ -27,6 +27,10 @@ const ModuleSchema = new mongoose.Schema({
     updated_date: {
         type: Date,
         default: Date.now
+    },
+    confirmed: {
+        type: Boolean,
+        required: true;
     }
 });
 

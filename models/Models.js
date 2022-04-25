@@ -30,7 +30,7 @@ const ModuleSchema = new mongoose.Schema({
     },
     confirmed: {
         type: Boolean,
-        default: true,
+        default: false,
         required: true
     }
 });

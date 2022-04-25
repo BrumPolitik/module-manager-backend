@@ -70,9 +70,7 @@ const ObjectiveSchema = new mongoose.Schema({
 const GoalSchema = new mongoose.Schema({
     goal_id: {
         type: String,
-        unique: true,
-        required: true,
-        dropDups: true
+        required: true
     },
     goal_name: {
         type: String,

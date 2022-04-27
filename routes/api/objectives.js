@@ -27,10 +27,13 @@ router.get('/:id', async (req, res) => {
     try {
         let objectives = await Objective.find({module_ids: req.params.id});
         if (objectives.length === 0) {
-            objectives = await Objective.find({_id: req.params.id});
+            objectives = await Objective.find({goal_id: req.params.id});
             if (objectives.length === 0) {
-                let string = req.params.id.split(':');
-                objectives = await Objective.find({module_ids: string[0], goal_ids: string[1]});
+                objectives = await Objective.find({_id: req.params.id});
+                if (objectives.length === 0) {
+                    let string = req.params.id.split(':');
+                    objectives = await Objective.find({module_ids: string[0], goal_ids: string[1]});
+                }
             }
         }
         res.json(objectives);
